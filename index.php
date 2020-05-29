@@ -23,7 +23,7 @@ $prepareItems = getCatalog();
         <?php if(!empty($prepareItems)) : ?>
             <?php foreach($prepareItems as $item) :?>
                 <tr>
-                    <td><img src="/img/<?= $item['image'] ;?>" width="150" alt=""></td>
+                    <td><img src="<?php __DIR__ ?>img/<?= $item['image'] ;?>" width="150" alt=""></td>
                     <td>
                         <h3><?= $item['name'] ;?></h3>
                         <p><?= $item['description'] ;?></p>
