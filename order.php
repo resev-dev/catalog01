@@ -54,7 +54,7 @@ $title = 'Оформление заказа: ' . $itemName;
     <form action="" method="POST">
         <div>
             <label>Количество товара в заказе</label><br>
-            <input type="text" name="count" placeholder="Количество товара" value="1" required>
+            <input type="number" name="count" placeholder="Количество товара" value="1" required>
         </div>
         <div>
             <input type="text" name="username" placeholder="Ваше имя" required>
