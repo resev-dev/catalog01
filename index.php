@@ -1,13 +1,8 @@
 <?php
 
-$filename = __DIR__ . '/repository/catalog.txt';
-$fileItems = file($filename);
+require_once __DIR__ . '/apps.php';
 
-array_shift($fileItems);
-
-$prepareItems = array_map(function($item){
-    return explode('|', $item);
-}, $fileItems);
+$prepareItems = getCatalog();
 
 ?>
 <!doctype html>
@@ -28,14 +23,14 @@ $prepareItems = array_map(function($item){
         <?php if(!empty($prepareItems)) : ?>
             <?php foreach($prepareItems as $item) :?>
                 <tr>
-                    <td><img src="/img/<?= $item[3] ;?>" width="150" alt=""></td>
+                    <td><img src="/img/<?= $item['image'] ;?>" width="150" alt=""></td>
                     <td>
-                        <h3><?= $item[1] ;?></h3>
-                        <p><?= $item[4] ;?></p>
-                        <p>Цена: <?= $item[2] ;?> руб.</p>
+                        <h3><?= $item['name'] ;?></h3>
+                        <p><?= $item['description'] ;?></p>
+                        <p>Цена: <?= $item['price'] ;?> руб.</p>
                     </td>
                     <td>
-                        <a href="/order.php?id=<?= $item[0] ;?>">Заказать</a>
+                        <a href="/order.php?id=<?= $item['id'] ;?>">Заказать</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

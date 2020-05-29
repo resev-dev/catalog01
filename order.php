@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/apps.php';
+
 $itemId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (!$itemId) { // '' => false, null => false
@@ -9,6 +11,7 @@ if (!$itemId) { // '' => false, null => false
 
 $itemName = 'Стиральная машина LG F2J3HS0W';
 $title = 'Оформление заказа: ' . $itemName;
+
 ?>
 <!doctype html>
 <html lang="ru">
