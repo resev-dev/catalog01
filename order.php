@@ -60,14 +60,14 @@ $title = 'Оформление заказа: ' . $itemName;
             <input type="text" name="username" placeholder="Ваше имя" required>
         </div>
         <div>
-            <input type="email" name="email" placeholder="Ваше Email" required>
+            <input type="email" name="email" placeholder="Ваш Email" required>
         </div>
         <div>
             <label>Ваш комментарий к заказу</label><br>
             <textarea name="comment" cols="30" rows="10"></textarea>
         </div>
         <div>
-            <button type="submit">Отправить заявку</button>
+            <button type="submit">Оформить заказ</button>
         </div>
     </form>
 </body>
