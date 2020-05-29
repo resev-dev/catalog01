@@ -26,3 +26,7 @@ ul {
 .order-list td {
   padding: 5px 10px;
 }
+
+table.order-list {
+  border: 2px solid black;
+}
