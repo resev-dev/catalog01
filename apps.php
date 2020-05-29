@@ -1,6 +1,6 @@
 <?php
 
-function getCatalog(): array
+function getCatalog()
 {
     $filename = __DIR__ . '/repository/catalog.txt';
     $fileItems = file($filename);
