@@ -36,20 +36,22 @@ $title = 'Оформление заказа: ' . $itemName;
 ?>
 <!doctype html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?></title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
     <?php include_once __DIR__ . '/_menu.php'; ?>
 
     <h1><?= $title ?></h1>
 
-    <p><b>Описание:</b> <?= $itemInfo['description'] ;?></p>
+    <p><b>Описание:</b> <?= $itemInfo['description']; ?></p>
 
-    <p><b>Цена:</b> <?= $itemInfo['price'] ;?> руб.</p>
+    <p><b>Цена:</b> <?= $itemInfo['price']; ?> руб.</p>
 
     <form action="" method="POST">
         <div>
@@ -71,4 +73,5 @@ $title = 'Оформление заказа: ' . $itemName;
         </div>
     </form>
 </body>
+
 </html>
