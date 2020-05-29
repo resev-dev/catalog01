@@ -1,4 +1,4 @@
 <ul id="menu">
-    <li><a href="/index.php">Каталог</a></li>
-    <li><a href="/order-list.php">Список заказов</a></li>
+    <li><a href="<?php __DIR__ ?>index.php">Каталог</a></li>
+    <li><a href="<?php __DIR__ ?>order-list.php">Список заказов</a></li>
 </ul>

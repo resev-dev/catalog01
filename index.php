@@ -7,11 +7,13 @@ $prepareItems = getCatalog();
 ?>
 <!doctype html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Каталог товаров</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
     <?php include_once __DIR__ . '/_menu.php'; ?>
@@ -20,23 +22,24 @@ $prepareItems = getCatalog();
 
     <table>
 
-        <?php if(!empty($prepareItems)) : ?>
-            <?php foreach($prepareItems as $item) :?>
+        <?php if (!empty($prepareItems)) : ?>
+            <?php foreach ($prepareItems as $item) : ?>
                 <tr>
-                    <td><img src="/img/<?= $item['image'] ;?>" width="150" alt=""></td>
+                    <td><img src="<?php __DIR__ ?>img/<?= $item['image']; ?>" width="150" alt=""></td>
                     <td>
-                        <h3><?= $item['name'] ;?></h3>
-                        <p><?= $item['description'] ;?></p>
-                        <p>Цена: <?= $item['price'] ;?> руб.</p>
+                        <h3><?= $item['name']; ?></h3>
+                        <p><?= $item['description']; ?></p>
+                        <p>Цена: <?= $item['price']; ?> руб.</p>
                     </td>
                     <td>
-                        <a href="/order.php?id=<?= $item['id'] ;?>">Заказать</a>
+                        <a href="<?php __DIR__?>order.php?id=<?= $item['id']; ?>">Заказать</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
-        <?php else :?>
+        <?php else : ?>
             <p><b>Товары не найдены</b></p>
         <?php endif; ?>
     </table>
 </body>
+
 </html>

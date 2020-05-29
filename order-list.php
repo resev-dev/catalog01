@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Список заказов</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
     <?php include_once __DIR__ . '/_menu.php'; ?>
@@ -31,4 +33,5 @@
         </tr>
     </table>
 </body>
+
 </html>
