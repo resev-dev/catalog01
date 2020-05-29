@@ -16,7 +16,7 @@ if (empty($items)) {
     exit();
 }
 
-$itemInfo = array();
+$itemInfo = [];
 
 foreach ($items as $item) {
     if ($item['id'] === $itemId) {
