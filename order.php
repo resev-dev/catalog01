@@ -53,10 +53,10 @@ $title = 'Оформление заказа: ' . $itemName;
 
     <p><b>Цена:</b> <?= $itemInfo['price']; ?> руб.</p>
 
-    <form action="" method="POST">
+    <form action="" method="POST" autocomplete="on">
         <div>
             <label>Количество товара в заказе</label><br>
-            <input type="number" name="count" placeholder="Количество товара" value="1" required>
+            <input type="number" name="count" placeholder="Количество товара" value="1" min="1" required>
         </div>
         <div>
             <input type="text" name="username" placeholder="Ваше имя" required>
