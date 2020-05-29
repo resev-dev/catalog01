@@ -32,7 +32,7 @@ $prepareItems = getCatalog();
                         <p>Цена: <?= $item['price']; ?> руб.</p>
                     </td>
                     <td>
-                        <a href="/order.php?id=<?= $item['id']; ?>">Заказать</a>
+                        <a href="<?php __DIR__?>order.php?id=<?= $item['id']; ?>">Заказать</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
