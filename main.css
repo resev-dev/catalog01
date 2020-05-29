@@ -1,0 +1,28 @@
+input {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+#menu li {
+    display: inline-block;
+}
+
+#menu li a {
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    text-decoration: underline;
+}
+
+.total-sum {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.order-list td {
+    padding: 5px 10px;
+}
