@@ -9,7 +9,7 @@ if (!$itemId) { // '' => false, null => false
     exit();
 }
 
-$items = getCatalog ();
+$items = getCatalog ('catalog');
 
 if (empty($items)) {
     header ("Location: index.php");

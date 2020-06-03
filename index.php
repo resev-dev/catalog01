@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/apps.php';
 
-$prepareItems = getCatalog ();
+$prepareItems = getCatalog ('catalog');
 
 ?>
 <!doctype html>

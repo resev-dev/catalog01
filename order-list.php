@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/apps.php';
 
-$prepareOrders = getOrders ();
+$prepareOrders = getCatalog ('orders');
 
 ?>
 

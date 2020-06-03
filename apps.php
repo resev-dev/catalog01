@@ -1,31 +1,9 @@
 <?php
 
-function getCatalog(): array
+function getCatalog($filename): array
 {
-    $filename = __DIR__ . '/repository/catalog.txt';
-    $fileItems = file ($filename);
-
-    $headersString = array_shift ($fileItems);
-
-    $prepareHeaders = explode ('|', $headersString);
-
-    $prepareHeaders = array_map ('trim', $prepareHeaders);
-
-    $prepareItems = array_map (function ($item) {
-        return explode ('|', $item);
-    }, $fileItems);
-
-    $prepareItems = array_map (function ($item) use ($prepareHeaders) {
-        return array_combine ($prepareHeaders, $item);
-    }, $prepareItems);
-
-    return $prepareItems;
-}
-
-function getOrders(): array
-{
-    $filename = __DIR__ . '/repository/orders.txt';
-    $fileItems = file ($filename);
+    $filepath = __DIR__ . "/repository/$filename.txt";
+    $fileItems = file ($filepath);
 
     $headersString = array_shift ($fileItems);
 
