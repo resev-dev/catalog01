@@ -3,20 +3,20 @@
 function getCatalog(): array
 {
     $filename = __DIR__ . '/repository/catalog.txt';
-    $fileItems = file($filename);
+    $fileItems = file ($filename);
 
-    $headersString = array_shift($fileItems);
+    $headersString = array_shift ($fileItems);
 
-    $prepareHeaders = explode('|', $headersString);
+    $prepareHeaders = explode ('|', $headersString);
 
-    $prepareHeaders = array_map('trim', $prepareHeaders);
+    $prepareHeaders = array_map ('trim', $prepareHeaders);
 
-    $prepareItems = array_map(function ($item) {
-        return explode('|', $item);
+    $prepareItems = array_map (function ($item) {
+        return explode ('|', $item);
     }, $fileItems);
 
-    $prepareItems = array_map(function ($item) use ($prepareHeaders) {
-        return array_combine($prepareHeaders, $item);
+    $prepareItems = array_map (function ($item) use ($prepareHeaders) {
+        return array_combine ($prepareHeaders, $item);
     }, $prepareItems);
 
     return $prepareItems;
