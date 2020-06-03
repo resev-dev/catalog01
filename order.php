@@ -60,25 +60,25 @@ $title = 'Оформление заказа: ' . $itemName;
             <input type="number" name="count" placeholder="Количество товара" value="1" min="1" required>
         </label>
     </div>
+
     <div>
         <label>
             Ваше имя:<br>
             <input type="text" name="username" placeholder="Введите имя" required>
         </label>
     </div>
+
     <div>
         <label>
             Ваш Email:<br>
             <input type="email" name="email" placeholder="Введите Email" required>
         </label>
-
     </div>
 
     <div>
         <label>Ваш комментарий к заказу:<br>
             <textarea name="comment" cols="30" rows="10"></textarea>
         </label>
-
     </div>
 
     <div>
