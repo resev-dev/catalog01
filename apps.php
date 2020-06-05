@@ -11,11 +11,11 @@ function getCatalog(): array
 
     $prepareHeaders = array_map('trim', $prepareHeaders);
 
-    $prepareItems = array_map(function($item){
+    $prepareItems = array_map(function ($item) {
         return explode('|', $item);
     }, $fileItems);
 
-    $prepareItems = array_map(function($item) use ($prepareHeaders) {
+    $prepareItems = array_map(function ($item) use ($prepareHeaders) {
         return array_combine($prepareHeaders, $item);
     }, $prepareItems);
 

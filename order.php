@@ -36,39 +36,42 @@ $title = 'Оформление заказа: ' . $itemName;
 ?>
 <!doctype html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?></title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
     <?php include_once __DIR__ . '/_menu.php'; ?>
 
     <h1><?= $title ?></h1>
 
-    <p><b>Описание:</b> <?= $itemInfo['description'] ;?></p>
+    <p><b>Описание:</b> <?= $itemInfo['description']; ?></p>
 
-    <p><b>Цена:</b> <?= $itemInfo['price'] ;?> руб.</p>
+    <p><b>Цена:</b> <?= $itemInfo['price']; ?> руб.</p>
 
-    <form action="" method="POST">
+    <form action="" method="POST" autocomplete="on">
         <div>
             <label>Количество товара в заказе</label><br>
-            <input type="text" name="count" placeholder="Количество товара" value="1" required>
+            <input type="number" name="count" placeholder="Количество товара" value="1" min="1" required>
         </div>
         <div>
             <input type="text" name="username" placeholder="Ваше имя" required>
         </div>
         <div>
-            <input type="email" name="email" placeholder="Ваше Email" required>
+            <input type="email" name="email" placeholder="Ваш Email" required>
         </div>
         <div>
             <label>Ваш комментарий к заказу</label><br>
             <textarea name="comment" cols="30" rows="10"></textarea>
         </div>
         <div>
-            <button type="submit">Отправить заявку</button>
+            <button type="submit">Оформить заказ</button>
         </div>
     </form>
 </body>
+
 </html>
