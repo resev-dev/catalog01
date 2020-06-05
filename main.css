@@ -1,32 +1,32 @@
 input {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 #menu li {
-  display: inline-block;
+    display: inline-block;
 }
 
 #menu li a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #menu li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .total-sum {
-  font-weight: bold;
-  font-size: 20px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .order-list td {
-  padding: 5px 10px;
+    padding: 5px 10px;
 }
 
 table.order-list {
-  border: 2px solid black;
+    border: 2px solid black;
 }

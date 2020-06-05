@@ -1,3 +1,11 @@
+<?php
+
+require_once __DIR__ . '/apps.php';
+
+$prepareOrders = getCatalog ('orders');
+
+?>
+
 <!doctype html>
 <html lang="ru">
 
@@ -9,29 +17,35 @@
 
 <body>
 
-    <?php include_once __DIR__ . '/_menu.php'; ?>
+<?php include_once __DIR__ . '/_menu.php'; ?>
 
-    <h1>Список заказов</h1>
+<h1>Список заказов</h1>
 
-    <table class="order-list">
-        <tr>
-            <th>№</th>
-            <th>Дата</th>
-            <th>Товар</th>
-            <th>Количество</th>
-            <th>Цена</th>
-            <th>ИТОГ</th>
-        </tr>
+<table class="order-list">
+    <tr>
+        <th>№</th>
+        <th>Дата</th>
+        <th>Товар</th>
+        <th>Количество</th>
+        <th>Цена</th>
+        <th>ИТОГ</th>
+    </tr>
 
-        <tr>
-            <td>101</td>
-            <td>2020-05-29 11:11:11</td>
-            <td>Стиральная машина LG F2J3HS0W</td>
-            <td>1</td>
-            <td>22999 руб</td>
-            <td class="total-sum">22999 руб</td>
-        </tr>
-    </table>
+    <?php if (!empty($prepareOrders)) : ?>
+        <?php foreach ($prepareOrders as $item) : ?>
+            <tr>
+                <td><?= $item['id']; ?></td>
+                <td><?= $item['date']; ?></td>
+                <td><?= $item['name'] ?></td>
+                <td><?= $item['count'] ?></td>
+                <td><?= $item['price'] ?> руб.</td>
+                <td class="total-sum"><?= $item['sum'] ?> руб.</td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else : ?>
+        <p><b>Заказы не найдены</b></p>
+    <?php endif; ?>
+</table>
 </body>
 
 </html>

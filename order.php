@@ -5,14 +5,14 @@ require_once __DIR__ . '/apps.php';
 $itemId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (!$itemId) { // '' => false, null => false
-    header("Location: index.php");
+    header ("Location: index.php");
     exit();
 }
 
-$items = getCatalog();
+$items = getCatalog ('catalog');
 
 if (empty($items)) {
-    header("Location: index.php");
+    header ("Location: index.php");
     exit();
 }
 
@@ -26,7 +26,7 @@ foreach ($items as $item) {
 }
 
 if (empty($itemInfo)) {
-    header("Location: index.php");
+    header ("Location: index.php");
     exit();
 }
 
@@ -45,33 +45,46 @@ $title = 'Оформление заказа: ' . $itemName;
 
 <body>
 
-    <?php include_once __DIR__ . '/_menu.php'; ?>
+<?php include_once __DIR__ . '/_menu.php'; ?>
 
-    <h1><?= $title ?></h1>
+<h1><?= $title ?></h1>
 
-    <p><b>Описание:</b> <?= $itemInfo['description']; ?></p>
+<p><b>Описание:</b> <?= $itemInfo['description']; ?></p>
 
-    <p><b>Цена:</b> <?= $itemInfo['price']; ?> руб.</p>
+<p><b>Цена:</b> <?= $itemInfo['price']; ?> руб.</p>
 
-    <form action="" method="POST" autocomplete="on">
-        <div>
-            <label>Количество товара в заказе</label><br>
+<form action="" method="POST" autocomplete="on">
+    <div>
+        <label>
+            Количество товара в заказе:<br>
             <input type="number" name="count" placeholder="Количество товара" value="1" min="1" required>
-        </div>
-        <div>
-            <input type="text" name="username" placeholder="Ваше имя" required>
-        </div>
-        <div>
-            <input type="email" name="email" placeholder="Ваш Email" required>
-        </div>
-        <div>
-            <label>Ваш комментарий к заказу</label><br>
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Ваше имя:<br>
+            <input type="text" name="username" placeholder="Введите имя" required>
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Ваш Email:<br>
+            <input type="email" name="email" placeholder="Введите Email" required>
+        </label>
+    </div>
+
+    <div>
+        <label>Ваш комментарий к заказу:<br>
             <textarea name="comment" cols="30" rows="10"></textarea>
-        </div>
-        <div>
-            <button type="submit">Оформить заказ</button>
-        </div>
-    </form>
+        </label>
+    </div>
+
+    <div>
+        <button type="submit">Оформить заказ</button>
+    </div>
+</form>
 </body>
 
 </html>
