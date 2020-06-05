@@ -30,6 +30,63 @@ if (empty($itemInfo)) {
     exit();
 }
 
+$dataForm = $_POST;
+
+if (!empty($dataForm)) {
+    $count = isset($dataForm['count']) ? $dataForm['count'] : null;
+    if (isset($dataForm['username'])) {
+        $username = htmlspecialchars(trim($dataForm['username']));
+    } else {
+        $username = null;
+    }
+    $email = isset($dataForm['email']) ? htmlspecialchars(trim($dataForm['email'])) : null;
+    $comment = isset($dataForm['comment']) ? htmlspecialchars(trim($dataForm['comment'])) : null;
+
+    $errors = [];
+    if ($count < 1) {
+        $errors[] = 'Количество товара не может быть меньше 1';
+    }
+
+    if (empty($username) || empty($email)) {
+        $errors[] = 'Не заполнены обязательные поля';
+    }
+
+    if (empty($errors)) {
+        // обработка формы
+
+        // сформируем массив с информацией о заказе
+        $sum = $count * $itemInfo['price'];
+        $order = [
+            'id' => rand(10000, 999999) . '_' . time(),
+            'date' => date('Y-m-d H:i'),
+            'username' => $username,
+            'email' => $email,
+            'product' => $itemInfo['name'],
+            'count' => $count,
+            'price' => $itemInfo['price'],
+            'sum' => $sum . "\r\n",
+        ];
+        // откроем файл для записи
+        $filename = __DIR__ . '/repository/orders.txt';
+        $fileHandle = fopen($filename, 'a+');
+        // добавим заказ в файл
+        fwrite($fileHandle, implode('|', $order));
+        // закроем файл
+        fclose($fileHandle);
+        // перенаправить в каталог товаров
+
+    } else {
+        //$errorsPrepare = implode('<br>', $errors);
+
+        $errorsPrepare = '';
+
+        foreach ($errors as $itemError) {
+            $errorsPrepare .= sprintf('<div style="font-weight: bold; color: red">%s</div>', $itemError);
+        }
+
+    }
+}
+
 $itemName = $itemInfo['name'];
 $title = 'Оформление заказа: ' . $itemName;
 
@@ -52,6 +109,10 @@ $title = 'Оформление заказа: ' . $itemName;
     <p><b>Описание:</b> <?= $itemInfo['description']; ?></p>
 
     <p><b>Цена:</b> <?= $itemInfo['price']; ?> руб.</p>
+
+    <p>
+        <?= $errorsPrepare;?>
+    </p>
 
     <form action="" method="POST" autocomplete="on">
         <div>
